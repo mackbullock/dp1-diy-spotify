@@ -11,6 +11,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
     <title>DS2022 Spotify</title>
+
+    <style>
+        /* Ensures album covers are squares */
+        .album-cover {
+            width: 100%;
+            height: 200px;  /* Fixed height for consistency */
+            object-fit: cover;  /* Ensures the image covers the area without distortion */
+            border-radius: 8px;  /* Optional: Adds rounded corners to the images */
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +40,7 @@
           for (var i = 0; i < data.length; i++) {
             songHTML += "<div class='col-md-6 mb-4'>";  // Start a new column for each song
             songHTML += "<div class='card'>";
-            songHTML += "<img src='" + data[i].image + "' class='card-img-top' alt='" + data[i].title + "' style='height:200px;object-fit:cover;'>";
+            songHTML += "<img src='" + data[i].image + "' class='album-cover' alt='" + data[i].title + "'>";  <!-- Apply album-cover class for square images -->
             songHTML += "<div class='card-body'>";
             songHTML += "<h5 class='card-title'>" + data[i].title + "</h5>";
             songHTML += "<p class='card-text'>" + data[i].artist + " | <i>" + data[i].album + "</i> | " + data[i].year + " | " + data[i].genre + "</p>";
